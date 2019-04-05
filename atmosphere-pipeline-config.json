@@ -1,0 +1,6 @@
+{
+	"git_url": "https://github.com/davsanssg/jenkins2-course-spring-boot.git",
+	"git_branch": "develop",
+	"maven_version": "3.5.0",
+	"maven_docker_image": "maven:3.5-jdk-8"
+}
