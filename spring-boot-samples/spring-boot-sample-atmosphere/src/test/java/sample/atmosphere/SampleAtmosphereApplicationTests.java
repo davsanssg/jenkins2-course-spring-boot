@@ -51,6 +51,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SampleAtmosphereApplicationTests {
 
 	private static Log logger = LogFactory.getLog(SampleAtmosphereApplicationTests.class);
+	private static final String ERROR_MESSAGE = "My error message";
 
 	@LocalServerPort
 	private int port = 1234;
@@ -69,6 +70,16 @@ public class SampleAtmosphereApplicationTests {
 		assertThat(count).isEqualTo(0L);
 		assertThat(messagePayloadReference.get())
 				.contains("{\"message\":\"test\",\"author\":\"test\",\"time\":");
+	}
+
+	@Test
+	public void shouldGenerateErrorMessage() throws Exception {
+		String generatedMessage = generateErrorMessage();
+		assertThat(generatedMessage).isEqualTo(ERROR_MESSAGE);
+	}
+
+	private String generateErrorMessage(){
+		return "My error message";
 	}
 
 	@Configuration
