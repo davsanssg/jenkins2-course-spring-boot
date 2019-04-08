@@ -20,18 +20,14 @@ pipeline {
         stage('Build') {
             steps{
                 echo 'Compiling, testing and building...'
-                dir(PROJECT_PATH){
-                    sh label: '', script: 'mvn clean package'   
-                }
+                sh label: '', script: 'mvn clean package'            
             }
         }
         
         stage('Results'){
             steps{
-                dir(PROJECT_PATH){
-                    junit 'target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
+                junit 'target/surefire-reports/TEST-*.xml'
+                archiveArtifacts 'target/*.jar'
             }
         }
         
