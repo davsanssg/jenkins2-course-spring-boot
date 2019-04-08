@@ -26,7 +26,7 @@ pipeline {
                 dir(PROJECT_PATH){
                     echo 'Starting Build stage...'
                     echo 'Compiling, testing and building...'
-                    sh label: '', script: 'sudo mvn clean package'
+                    sh label: '', script: 'mvn clean package'
                 }          
             }
         }
