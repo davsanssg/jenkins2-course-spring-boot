@@ -18,15 +18,21 @@ pipeline {
         
         stage('Build') {
             steps{
-                echo 'Compiling, testing and building...'
-                sh label: '', script: 'mvn clean package'            
+                dir(PROJECT_PATH){
+                    echo 'Starting Build stage...'
+                    echo 'Compiling, testing and building...'
+                    sh label: '', script: 'mvn clean package'  
+                }          
             }
         }
         
         stage('Results'){
             steps{
-                junit 'target/surefire-reports/TEST-*.xml'
-                archiveArtifacts 'target/*.jar'
+                dir(PROJECT_PATH){
+                    echo 'Starting Results stage...'
+                    junit 'target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }      
             }
         }
         
