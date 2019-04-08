@@ -19,11 +19,13 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'maven:3.5-jdk-8'
+                    image 'maven:3.5-jdk-8',
+                    args '-e _JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true'
                 }
             }       
             steps{
                 dir(PROJECT_PATH){
+                    sh 'printenv'
                     echo 'Starting Build stage...'
                     echo 'Compiling, testing and building...'
                     sh label: '', script: 'mvn clean package'
