@@ -17,11 +17,16 @@ pipeline {
         }
         
         stage('Build') {
+            agent {
+                docker {
+                    image 'maven:3.5-jdk-8'
+                }
+            }       
             steps{
                 dir(PROJECT_PATH){
                     echo 'Starting Build stage...'
                     echo 'Compiling, testing and building...'
-                    sh label: '', script: 'mvn clean package'  
+                    sh label: '', script: 'mvn clean package'
                 }          
             }
         }
