@@ -12,8 +12,7 @@ pipeline {
                 REPO_URL = 'https://github.com/davsanssg/jenkins2-course-spring-boot.git'
             }
             steps {
-                echo 'Cleaning workspace..'
-                cleanWs()
+                echo 'Doing nothing in preparation..'
             }
         }
         
