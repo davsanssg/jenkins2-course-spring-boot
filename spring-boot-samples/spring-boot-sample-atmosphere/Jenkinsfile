@@ -22,18 +22,16 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3.6.0-jdk-8-alpine'
-                    args '-v ${WORKSPACE}/${PROJECT_PATH}:/opt/maven -w /opt/maven'
+                    args '-v ${WORKSPACE}:/opt/maven -w /opt/maven'
                     reuseNode true
                 }
             }    
             steps{
                 dir(PROJECT_PATH){
-                    sh 'printenv'
                     sh 'pwd'
-                    sh 'ls'
                     echo 'Starting Build stage...'
                     echo 'Compiling, testing and building...'
-                    sh label: '', script: 'mvn clean package'
+                    sh 'mvn clean package'
                 }
             }     
 
