@@ -30,6 +30,7 @@ pipeline {
                 dir(PROJECT_PATH){
                     sh 'printenv'
                     sh 'pwd'
+                    sh 'ls'
                     echo 'Starting Build stage...'
                     echo 'Compiling, testing and building...'
                     sh label: '', script: 'mvn clean package'
