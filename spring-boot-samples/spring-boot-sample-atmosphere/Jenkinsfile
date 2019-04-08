@@ -23,7 +23,7 @@ pipeline {
                 docker {
                     image 'maven:3.5.2'
                     //args '-e _JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true'
-                    args '-v ${pwd}:/opt/maven -w /opt/maven'
+                    args '-v /var/jenkins_home/workspace/atmosphere_pipeline:/opt/maven -w /opt/maven'
                     reuseNode true
                 }
             }    
