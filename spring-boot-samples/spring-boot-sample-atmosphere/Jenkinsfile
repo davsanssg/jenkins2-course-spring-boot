@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+    //TEST WEBHOOK
     environment { 
         PROJECT_PATH = 'spring-boot-samples/spring-boot-sample-atmosphere'
     }
