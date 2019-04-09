@@ -1,16 +1,12 @@
 pipeline {
     agent any
-    //Testing webhooks 6
+    
     environment { 
         PROJECT_PATH = 'spring-boot-samples/spring-boot-sample-atmosphere'
     }
     
     stages {
         stage('Preparation') {
-            environment { 
-                REPO_BRANCH = 'develop'
-                REPO_URL = 'https://github.com/davsanssg/jenkins2-course-spring-boot.git'
-            }
             steps {
                 echo 'Doing nothing in preparation..'
             }
